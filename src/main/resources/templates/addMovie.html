@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Movie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<div class="container">
+    <h2>Save a new Movie</h2>
+    <form action="/action_page.php">
+      <div class="form-group">
+        <label for="name">Movie's name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Movie's name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="date">Movie's release date:</label>
+        <input type="date" class="form-control" id="date" placeholder="" name="date">
+      </div>
+      <div>
+        <label for="type">Movie's Type</label>
+        <select class="form-control" id="type">
+          <option>Horror</option>
+          <option>Western</option>
+          <option>Drama</option>
+          <option>Action</option>
+          <option>Comedy</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Movie's description:</label>
+        <input type="text" class="form-control" id="description" placeholder="Movie's description" name="description">
+      </div>
+      <div class="form-group">
+        <label for="media">Movie's media:</label>
+        <input type="file" class="form-control" id="media" placeholder="Movie's media" name="media">
+      </div>
+      <div>
+        <label for="type">Movie's Language</label>
+        <select class="form-control" id="type">
+          <option>Turkish</option>
+          <option>English</option>
+          <option>Spanish</option>
+          <option>French</option>
+        </select>
+      </div>
+
+
+      
+
+      <button type="submit" class="btn btn-default">Save</button>
+    </form>
+  </div>
+  
+</body>
+</html>

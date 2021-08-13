@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Media</th>
+        <th>Languages</th>
+    </tr>
+    <tr th:if="${#lists.isEmpty(movies)}">
+        <td colspan="7">No Records found. Add some...!</td>
+    </tr>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.name}"></td>
+        <td th:text="${movie.releasedate}"></td>
+        <td th:text="${movie.movietype}"></td>
+        <td th:text="${movie.description}"></td>
+        <td th:text="${movie.media}"></td>
+         <td th:text="${movie.languages}"></td>
+        <td><a th:href="'/' + ${movie.id}">
+
+</a></td>
+    </tr>
+</table>
+
+</body>

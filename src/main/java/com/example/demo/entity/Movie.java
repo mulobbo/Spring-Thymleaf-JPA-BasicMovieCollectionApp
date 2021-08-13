@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,9 @@ public class Movie {
 
 	private String name;
 	
-	private String type;
+	private String releasedate;
+	
+	private String movietype;
 	
 	private  String description;
 	
@@ -26,6 +30,24 @@ public class Movie {
 	
 	
 	
+	
+
+	public String getReleasedate() {
+		return releasedate;
+	}
+
+	public void setReleasedate(String releasedate) {
+		this.releasedate = releasedate;
+	}
+
+	public String getMovietype() {
+		return movietype;
+	}
+
+	public void setMovietype(String movietype) {
+		this.movietype = movietype;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -43,11 +65,11 @@ public class Movie {
 	}
 
 	public String getType() {
-		return type;
+		return movietype;
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this.movietype = type;
 	}
 
 	public String getDescription() {
