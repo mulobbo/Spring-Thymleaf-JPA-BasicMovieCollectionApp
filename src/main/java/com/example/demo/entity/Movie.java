@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Movie {
@@ -13,7 +14,7 @@ public class Movie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 
 	private String name;
 	
@@ -23,6 +24,7 @@ public class Movie {
 	
 	private  String description;
 	
+	@Lob
 	private String media;
 	
 	private String languages;
@@ -48,11 +50,13 @@ public class Movie {
 		this.movietype = movietype;
 	}
 
-	public Integer getId() {
+
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -64,14 +68,6 @@ public class Movie {
 		this.name = name;
 	}
 
-	public String getType() {
-		return movietype;
-	}
-
-	public void setType(String type) {
-		this.movietype = type;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -79,6 +75,8 @@ public class Movie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 
 	public String getMedia() {
 		return media;

@@ -10,65 +10,72 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.demo.entity.Movie;
 import com.example.demo.services.MovieService;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
 public class MovieController {
-	
-@Autowired
-MovieService movieService;
 
+	@Autowired
+	MovieService movieService;
 
-@RequestMapping
-public String getAllMovies(Model model) {
-	
-	List<Movie> list = movieService.getAllMovies();
-	model.addAttribute("movies",list);
-	
-	return "listMovie";
-	
-	
-}
+	@RequestMapping
+	public String getAllMovies(Model model) {
 
-@RequestMapping(path = "/createMovie",method = RequestMethod.POST)
-public String createMovie(Movie movie) {
-	
-	movieService.createMovie(movie);
-	
-	return "redirect:/";
-	
-}
+		List<Movie> list = movieService.getAllMovies();
+		model.addAttribute("movies", list);
 
-@RequestMapping("/delete/{id}")
-public String deleteMovieById(@PathVariable("id") Long id) {
-	
-	movieService.deleteMovieById(id);
-	
-	
-	return "redirect:/";
-}
+		return "listMovie";
 
-
-@RequestMapping("/update/{id}")
-public String updateMovieById(@PathVariable("id") Long id) {
+	}
 	
-	movieService.updateMovieById(id);
 	
-	return "redirect:/";
-}
-
-
-
-	
+	@RequestMapping("/add")
+	public String prepareMovie(Model model ){
+		
+			model.addAttribute("movie", new Movie() );
+			
+		
+		
+		return "addMovie";
+	}
+   
+	@RequestMapping("/update/{id}")
+	public String updateMovieById(Model model ,@PathVariable("id") Optional<Long> id) {
+		
+		if (id.isPresent()) {
+            Movie movie = movieService.getMovieById((Long)id.get());
+            model.addAttribute("movie",movie);
+            
+		}
+		
+		return "updateMovie";
+	}
 	
 	
 
+	@RequestMapping(path = "/createMovies", method = RequestMethod.POST)
+	public String createMovies(Movie movie) {
 
+		movieService.createMovie(movie);
 
+		return "redirect:/";
 
+	}
 
-	
-	
+	@RequestMapping("/delete/{id}")
+	public String deleteMovieById(@PathVariable("id") Long id) {
+
+		movieService.deleteMovieById(id);
+
+		return "redirect:/";
+	}
+
+	@RequestMapping(path = "/createMovie", method = RequestMethod.POST)
+	public String updateMovieById(Movie movie) {
+
+		return "redirect:/";
+	}
+
 }
