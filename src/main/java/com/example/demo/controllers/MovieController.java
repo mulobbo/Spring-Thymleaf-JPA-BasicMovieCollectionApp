@@ -78,7 +78,7 @@ public class MovieController {
             model.addAttribute("movie",movie);
             
 		}
-		return "deletemovie";
+		return "deleteMovie";
 	}
 
 @RequestMapping(path = "/delete", method = RequestMethod.POST)
