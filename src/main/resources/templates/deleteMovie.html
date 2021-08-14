@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Movie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<div class="container">
+    <h2>Delete Movie</h2>
+    <form action="#" th:action="@{/delete}" th:object="${movie}" method="post">
+       
+       
+        <div class="form-group">
+        <label for="name">Movie's ID:</label>
+        <input type="text" th:field="*{id}" class="form-control" id="id" placeholder="Movie's id"  name="id">
+      </div>                                                               
+      <div class="form-group">
+        <label for="name">Movie's name:</label>
+        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Movie's name" disabled name="name">
+      </div>
+      <div class="form-group">
+        <label for="date">Movie's release date:</label>
+        <input type="date" th:field="*{releasedate}" class="form-control" id="date" placeholder="" disabled name="releasedate">
+      </div>
+      <div>
+        <label for="type">Movie's Type</label>
+        <select disabled class="form-control" th:field="*{movietype}">
+          <option value="Horror">Horror</option>
+          <option value="Western" >Western</option>
+          <option value="Drama">Drama</option>
+          <option value="Action">Action</option>
+          <option value="Comedy" >Comedy</option>
+         
+         
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Movie's description:</label>
+        <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Movie's description" disabled name="description">
+      </div>
+      <div class="form-group">
+        <label for="media">Movie's media:</label>
+        <input type="file" th:field="*{media}" class="form-control" id="media" placeholder="Movie's media" disabled name="media">
+      </div>
+      <div>
+        <label for="languages">Movie's Language</label>
+        <select disabled class="form-control" th:field="*{languages}" >
+          <option  value="English">English</option>
+          <option  value="Spanish">Spanish</option>
+          <option  value="French">French</option>
+        </select>
+      </div>
+
+
+      
+
+      <button type="submit" class="btn btn-default">Delete</button>
+    </form>
+  </div>
+  
+</body>
+</html>

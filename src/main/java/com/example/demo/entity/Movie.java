@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +20,7 @@ public class Movie {
 
 	private String name;
 	
-	private String releasedate;
+	private Date releasedate;
 	
 	private String movietype;
 	
@@ -34,11 +36,12 @@ public class Movie {
 	
 	
 
-	public String getReleasedate() {
+
+	public Date getReleasedate() {
 		return releasedate;
 	}
 
-	public void setReleasedate(String releasedate) {
+	public void setReleasedate(Date releasedate) {
 		this.releasedate = releasedate;
 	}
 

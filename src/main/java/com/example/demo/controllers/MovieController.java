@@ -40,6 +40,16 @@ public class MovieController {
 		
 		return "addMovie";
 	}
+	
+	@RequestMapping(path = "/createMovies", method = RequestMethod.POST)
+	public String createMovies(Movie movie) {
+
+		movieService.createMovie(movie);
+         
+		return "redirect:/";
+
+	}
+	
    
 	@RequestMapping("/update/{id}")
 	public String updateMovieById(Model model ,@PathVariable("id") Optional<Long> id) {
@@ -53,29 +63,34 @@ public class MovieController {
 		return "updateMovie";
 	}
 	
-	
-
-	@RequestMapping(path = "/createMovies", method = RequestMethod.POST)
-	public String createMovies(Movie movie) {
-
-		movieService.createMovie(movie);
-
-		return "redirect:/";
-
-	}
-
-	@RequestMapping("/delete/{id}")
-	public String deleteMovieById(@PathVariable("id") Long id) {
-
-		movieService.deleteMovieById(id);
-
-		return "redirect:/";
-	}
-
 	@RequestMapping(path = "/createMovie", method = RequestMethod.POST)
 	public String updateMovieById(Movie movie) {
 
 		return "redirect:/";
 	}
+	
+	
+@RequestMapping("/delete/{id}")
+	public String deleteMovieById(Model model ,@PathVariable("id") Optional<Long> id) {
+
+			if (id.isPresent()) {
+            Movie movie = movieService.getMovieById((Long)id.get());
+            model.addAttribute("movie",movie);
+            
+		}
+		return "deletemovie";
+	}
+
+@RequestMapping(path = "/delete", method = RequestMethod.POST)
+public String deleteMovie(Movie movie) {
+
+	movieService.deleteMovieById(movie.getId());
+	
+		return "redirect:/";
+}
+
+	
+		
+	
 
 }
